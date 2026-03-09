@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    --theme-primary: #800000; /* Maroon */
+    --theme-primary-dark: #5a0000;
+    --theme-soft: #fffaf0; /* Cream */
+    --theme-text: #3d0000;
+    --theme-border: #e5d3b3;
+}
+
+a.active hr{
+    display: block;
+    background-color: var(--theme-primary);
+}
+
+*{
+    font-family: Outfit;
+}
+
+body{
+    background-color: #fffaf0;
+    background-image: 
+        radial-gradient(at 0% 0%, hsla(38, 44%, 96%, 1) 0, transparent 50%), 
+        radial-gradient(at 50% 0%, hsla(0, 100%, 97%, 1) 0, transparent 50%), 
+        radial-gradient(at 100% 0%, hsla(38, 44%, 96%, 1) 0, transparent 50%),
+        radial-gradient(at 0% 100%, hsla(38, 44%, 96%, 1) 0, transparent 50%), 
+        radial-gradient(at 50% 100%, hsla(0, 100%, 97%, 1) 0, transparent 50%), 
+        radial-gradient(at 100% 100%, hsla(38, 44%, 96%, 1) 0, transparent 50%);
+    background-attachment: fixed;
+    color: var(--theme-text);
+}
+
+.prata-regular {
+    font-family: "Prata", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.theme-btn{
+    background-color: var(--theme-primary);
+    color: white;
+    transition: background-color 0.25s ease;
+}
+
+.theme-btn:hover{
+    background-color: var(--theme-primary-dark);
+}
+
+.theme-outline-btn{
+    border: 1px solid var(--theme-primary);
+    color: var(--theme-primary-dark);
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.theme-outline-btn:hover{
+    background-color: var(--theme-primary);
+    color: white;
+}
+
+.theme-soft{
+    background-color: var(--theme-soft);
+}
+
+.theme-badge{
+    background-color: var(--theme-primary);
+    color: white;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+  
+@media (max-width:640px) {
+    a.active{
+        background-color: var(--theme-primary);
+        color: white;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+}
+
+.animate-pulse-slow {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.tracking-dot {
+    @apply w-4 h-4 rounded-full relative z-10;
+}
+
+.tracking-line {
+    @apply absolute top-1/2 -translate-y-1/2 h-1 bg-gray-200;
+}
+
+.tracking-line.active {
+    background-color: var(--theme-primary);
+}
